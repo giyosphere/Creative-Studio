@@ -1,0 +1,2 @@
+# filepath: /C:/Users/AINE/Desktop/Responsive Landing page/.gitignore
+.env

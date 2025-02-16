@@ -16,6 +16,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* Navbar Styles */
 .navbar {
     position: fixed;
@@ -348,7 +349,7 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Animations */
+                                                            /* Animations sa likod */ 
 @keyframes float {
     0%, 100% {
         transform: translateY(0);

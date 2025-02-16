@@ -1,3 +1,4 @@
+// filepath: /C:/Users/AINE/Desktop/Responsive Landing page/script.js
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -45,14 +46,24 @@ contactForm.addEventListener('submit', (e) => {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
     
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', { name, email, message });
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Show success message
-    alert('Thank you for your message! We will get back to you soon.');
+    // Send form data using fetch
+    fetch('http://localhost:3000/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('SUCCESS!', data);
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+    })
+    .catch(error => {
+        console.log('FAILED...', error);
+        alert('Failed to send message. Please try again later.');
+    });
 });
 
 // Intersection Observer for scroll animations
